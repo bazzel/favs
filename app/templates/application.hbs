@@ -15,18 +15,7 @@
   {{/paper-sidenav}}
 
   <div id="main" class="flex layout-column" tabindex="-1" role="main">
-    {{#paper-toolbar class="flex-none md-whiteframe-1dp" as |toolbar|}}
-      {{#toolbar.tools}}
-        {{#paper-sidenav-toggle as |toggleAction|}}
-          {{#paper-button onClick=(action toggleAction) iconButton=true}}
-            {{paper-icon "menu"}}
-          {{/paper-button}}
-        {{/paper-sidenav-toggle}}
-        <h2>
-          Favs
-        </h2>
-      {{/toolbar.tools}}
-    {{/paper-toolbar}}
+    <PageToolbar @pageTitle="Lorem" />
 
     {{#paper-content scroll-y=false class="layout-padding flex"}}
       <div class="content">
