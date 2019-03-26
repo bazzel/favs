@@ -1,0 +1,8 @@
+{{#paper-card as |card|}}
+  {{#card.content}}
+    <LoginForm
+      @user={{model}}
+      @onSubmit={{action "login"}}
+      />
+  {{/card.content}}
+{{/paper-card}}

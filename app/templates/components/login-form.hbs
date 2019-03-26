@@ -1,0 +1,13 @@
+{{#paper-form onSubmit=(action "submitChanges") preventDefault=true as |form|}}
+  <div class="layout-column">
+    {{form.input
+      label="Email"
+      placeholder="Enter email"
+      value=user.email
+      errors=errors.name
+      isTouched=true
+      class='layout-fill flex-50'
+      onChange=(action (mut user.email))}}
+  </div>
+  {{#form.submit-button raised=false primary=true}}Login{{/form.submit-button}}
+{{/paper-form}}
