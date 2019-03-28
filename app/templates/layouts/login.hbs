@@ -1,0 +1,9 @@
+  <div id="main" class="flex layout-column" tabindex="-1" role="main">
+    <PageToolbar @pageTitle="Lorem" />
+
+    {{#paper-content scroll-y=false class="layout-padding flex"}}
+      <div class="content">
+        {{outlet}}
+      </div>
+    {{/paper-content}}
+  </div>

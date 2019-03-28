@@ -5,5 +5,8 @@ export default Route.extend({
     return {
       email: ""
     };
+  },
+  renderTemplate: function() {
+    this.render("login", { into: "layouts/login" });
   }
 });

@@ -1,13 +1,14 @@
 {{#paper-form onSubmit=(action "submitChanges") preventDefault=true as |form|}}
   <div class="layout-column">
+    <h1>Simply login with your email</h1>
     {{form.input
       label="Email"
-      placeholder="Enter email"
-      value=user.email
-      errors=errors.name
+      value=this.user.email
+      errors=this.errors.email
       isTouched=true
       class='layout-fill flex-50'
-      onChange=(action (mut user.email))}}
+      onChange=(action (mut this.user.email))}}
   </div>
-  {{#form.submit-button raised=false primary=true}}Login{{/form.submit-button}}
+  {{#form.submit-button raised=false primary=true}}Sign in{{/form.submit-button}}
+  <p>Favs uses magic links instead of passwords.</p>
 {{/paper-form}}
