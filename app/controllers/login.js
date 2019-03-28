@@ -4,7 +4,6 @@ export default Controller.extend({
   tokenRequested: false,
   actions: {
     requestToken() {
-      console.log("requestToken");
       let session = this.store.createRecord("session", this.model);
 
       session
