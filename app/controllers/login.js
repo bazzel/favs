@@ -4,16 +4,14 @@ import fetch from "fetch";
 export default Controller.extend({
   tokenRequested: false,
   actions: {
-    requestToken() {
-      this._postData()
-        .then(res => {
-          this.set("tokenRequested", true);
-        })
-        .catch(e => {
-          const errs = e.errors.map(err => err.detail);
-          this.set("errors", errs);
-          console.error(errs);
-        });
+    async requestToken() {
+      try {
+        await this._postData();
+        this.set("tokenRequested", true);
+      } catch (e) {
+        const errs = e.errors.map(err => err.detail);
+        this.set("errors", errs);
+      }
     }
   },
   _postData() {
