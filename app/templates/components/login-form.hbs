@@ -4,7 +4,7 @@
     {{form.input
       label="Email"
       value=this.user.email
-      errors=this.errors.email
+      errors=this.errors
       isTouched=true
       class='layout-fill flex-50'
       onChange=(action (mut this.user.email))
