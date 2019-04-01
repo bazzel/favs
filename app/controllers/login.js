@@ -9,30 +9,24 @@ export default Controller.extend({
         await this._postData();
         this.set("tokenRequested", true);
       } catch (e) {
-        const errs = e.errors.map(err => err.detail);
-        this.set("errors", errs);
+        this.set("errors", e.errors.map(err => err.detail));
       }
     }
   },
-  _postData() {
+  async _postData() {
     const url = "http://localhost:3000/sessions";
     const data = { email: this.model };
-
-    return fetch(url, {
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(data)
-    }).then(res => {
-      let json = res.json();
-      if (res.ok) {
-        return json;
-      } else {
-        return json.then(err => {
-          throw err;
-        });
-      }
     });
+    const json = await response.json();
+
+    if (!response.ok) throw json;
+
+    return json;
   }
 });
