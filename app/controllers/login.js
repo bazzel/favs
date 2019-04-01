@@ -16,7 +16,7 @@ export default Controller.extend({
   },
   _postData() {
     const url = "http://localhost:3000/sessions";
-    const data = { email: this.model.email };
+    const data = { email: this.model };
 
     return fetch(url, {
       method: "POST",

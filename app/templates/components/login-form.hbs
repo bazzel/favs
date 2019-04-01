@@ -3,11 +3,11 @@
     <h1>Simply login with your email</h1>
     {{form.input
       label="Email"
-      value=this.user.email
+      value=this.email
       errors=this.errors
       isTouched=true
       class='layout-fill flex-50'
-      onChange=(action (mut this.user.email))
+      onChange=(action (mut this.email))
       }}
   </div>
   {{#form.submit-button

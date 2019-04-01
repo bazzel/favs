@@ -2,14 +2,14 @@
   {{#card.content}}
     {{#unless this.tokenRequested}}
       <LoginForm
-        @user={{this.model}}
+        @email={{this.model}}
         @errors={{this.errors}}
         @onSubmit={{action "requestToken"}}
         />
     {{else}}
       <h1>Check your email!</h1>
       <p>
-        We've emailed a special link to {{this.model.email}}.
+        We've emailed a special link to {{this.model}}.
         Click the link to confirm your address and get started.
       </p>
     {{/unless}}
