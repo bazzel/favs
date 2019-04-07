@@ -23,10 +23,10 @@ export default Controller.extend({
       },
       body: JSON.stringify(data)
     });
-    const json = await response.json();
 
-    if (!response.ok) throw json;
-
-    return json;
+    if (!response.ok) {
+      const json = await response.json();
+      throw json;
+    }
   }
 });
