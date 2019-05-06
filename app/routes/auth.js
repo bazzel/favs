@@ -9,7 +9,7 @@ export default Route.extend({
     return this.get("session")
       .authenticate(authenticator, token)
       .then(_data => {
-        this.transitionTo("index");
+        this.transitionTo("logged-in");
       });
   }
 });

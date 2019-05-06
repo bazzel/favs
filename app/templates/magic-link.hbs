@@ -1,14 +1,20 @@
-{{#paper-card as |card|}}
-  {{#card.content}}
-    {{#if this.tokenRequested}}
-      <h1>Check your email!</h1>
-      <p>We've emailed a special link to {{this.model}}. Click the link to confirm your address and get started.</p>
-    {{else}}
-      <LoginForm
-        @email={{this.model}}
-        @errors={{this.errors}}
-        @onSubmit={{action "requestToken"}}
-        />
-    {{/if}}
-  {{/card.content}}
-{{/paper-card}}
+<div id="main" class="flex layout-column" tabindex="-1" role="main">
+  {{#paper-content scroll-y=false class="layout-padding flex"}}
+    <div class="xcontent">
+      {{#paper-card as |card|}}
+        {{#card.content}}
+          {{#if this.tokenRequested}}
+            <h1>Check your email!</h1>
+            <p>We've emailed a special link to {{this.model}}. Click the link to confirm your address and get started.</p>
+          {{else}}
+            <LoginForm
+              @email={{this.model}}
+              @errors={{this.errors}}
+              @onSubmit={{action "requestToken"}}
+              />
+          {{/if}}
+        {{/card.content}}
+      {{/paper-card}}
+    </div>
+  {{/paper-content}}
+</div>
