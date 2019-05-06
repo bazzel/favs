@@ -6,13 +6,15 @@
       value=this.email
       errors=this.errors
       isTouched=true
-      class='layout-fill flex-50'
+      class="layout-fill flex-50"
       onChange=(action (mut this.email))
       }}
   </div>
   {{#form.submit-button
     raised=false
     primary=true
-    onClick=(action "clearErrors")}}Sign in{{/form.submit-button}}
+    onClick=(action "clearErrors")}}
+    Sign in
+  {{/form.submit-button}}
   <p>Favs uses magic links instead of passwords.</p>
 {{/paper-form}}

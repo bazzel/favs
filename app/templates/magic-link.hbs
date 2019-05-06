@@ -1,0 +1,14 @@
+{{#paper-card as |card|}}
+  {{#card.content}}
+    {{#if this.tokenRequested}}
+      <h1>Check your email!</h1>
+      <p>We've emailed a special link to {{this.model}}. Click the link to confirm your address and get started.</p>
+    {{else}}
+      <LoginForm
+        @email={{this.model}}
+        @errors={{this.errors}}
+        @onSubmit={{action "requestToken"}}
+        />
+    {{/if}}
+  {{/card.content}}
+{{/paper-card}}

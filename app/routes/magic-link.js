@@ -5,6 +5,6 @@ export default Route.extend({
     return "";
   },
   renderTemplate: function() {
-    this.render("login", { into: "layouts/login" });
+    this.render("magic-link", { into: "layouts/magic-link" });
   }
 });

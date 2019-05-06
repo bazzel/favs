@@ -8,5 +8,11 @@
     <h2>
       {{this.pageTitle}}
     </h2>
+    <span class="flex"></span>
+    {{#if session.isAuthenticated}}
+      {{#paper-button onClick=(action "logout")}}Log out{{/paper-button}}
+    {{else}}
+      {{#paper-button onClick=(action "login") raised=true primary=false}}Log in{{/paper-button}}
+    {{/if}}
   {{/toolbar.tools}}
 {{/paper-toolbar}}

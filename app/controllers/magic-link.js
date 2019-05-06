@@ -14,7 +14,7 @@ export default Controller.extend({
     }
   },
   async _postData() {
-    const url = "http://localhost:3000/sessions";
+    const url = "http://localhost:3000/magic_link";
     const data = { email: this.model };
     const response = await fetch(url, {
       method: "POST",
