@@ -8,7 +8,7 @@ export default Route.extend({
     let authenticator = "authenticator:jwt-login";
     return this.get("session")
       .authenticate(authenticator, token)
-      .then(_data => {
+      .then(() => {
         this.transitionTo("logged-in");
       });
   }

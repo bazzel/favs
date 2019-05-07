@@ -1,5 +1,6 @@
 import Controller from "@ember/controller";
 import fetch from "fetch";
+import ENV from "../config/environment";
 
 export default Controller.extend({
   tokenRequested: false,
@@ -14,7 +15,7 @@ export default Controller.extend({
     }
   },
   async _postData() {
-    const url = "http://localhost:3000/magic_link";
+    const url = `${ENV.DS.host}/magic_link`;
     const data = { email: this.model };
     const response = await fetch(url, {
       method: "POST",

@@ -3,14 +3,14 @@
 </div>
 
 <div class="hide show-{{this.breakpoint}}">
-  <div class="layout-column">
+  <div class="layout-column" local-class="card-wrapper">
     <div class="flex-20"/>
     <div class="flex">
-  {{#paper-card as |card|}}
-    {{#card.content}}
-      {{yield}}
-    {{/card.content}}
-  {{/paper-card}}
+      {{#paper-card local-class="card" as |card|}}
+        {{#card.content}}
+          {{yield}}
+        {{/card.content}}
+      {{/paper-card}}
     </div>
     <div class="flex-20"/>
   </div>

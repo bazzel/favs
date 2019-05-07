@@ -2,6 +2,9 @@
 
 module.exports = function(environment) {
   let ENV = {
+    DS: {
+      host: process.env["DS_HOST"] || "http://localhost:3000"
+    },
     modulePrefix: "favs",
     environment,
     rootURL: "/",
@@ -22,7 +25,6 @@ module.exports = function(environment) {
       // when it is created
     },
     "ember-simple-auth-token": {
-      serverTokenRefreshEndpoint: "http://localhost:3000/login",
       refreshTokenPropertyName: "token",
       refreshAccessTokens: false
     }
@@ -51,6 +53,9 @@ module.exports = function(environment) {
   if (environment === "production") {
     // here you can enable a production-specific feature
   }
+
+  // prettier-ignore
+  ENV["ember-simple-auth-token"].serverTokenRefreshEndpoint = `${ENV.DS.host}/login`;
 
   return ENV;
 };
