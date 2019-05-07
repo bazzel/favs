@@ -1,20 +1,25 @@
-{{#paper-form onSubmit=(action "submitChanges") preventDefault=true as |form|}}
-  <div class="layout-column">
-    <h1>Simply login with your email</h1>
-    {{form.input
-      label="Email"
-      value=this.email
-      errors=this.errors
-      isTouched=true
-      class="layout-fill flex-50"
-      onChange=(action (mut this.email))
-      }}
-  </div>
-  {{#form.submit-button
-    raised=false
-    primary=true
-    onClick=(action "clearErrors")}}
-    Sign in
-  {{/form.submit-button}}
-  <p>Favs uses magic links instead of passwords.</p>
-{{/paper-form}}
+{{#if this.isTokenRequested}}
+  <h1>Check your email!</h1>
+  <p>We've emailed a special link to <i>{{this.email}}</i>. Click the link to confirm your address and get started.</p>
+{{else}}
+  {{#paper-form onSubmit=(action "submitChanges") preventDefault=true as |form|}}
+    <div class="layout-column">
+      <h1>Simply login with your email</h1>
+      {{form.input
+        label="Email"
+        value=this.email
+        errors=this.errors
+        isTouched=true
+        class="layout-fill flex-50"
+        onChange=(action (mut this.email))
+        }}
+    </div>
+    {{#form.submit-button
+      raised=false
+      primary=true
+      onClick=(action "clearErrors")}}
+      Sign in
+    {{/form.submit-button}}
+    <p>Favs uses magic links instead of passwords.</p>
+  {{/paper-form}}
+{{/if}}
