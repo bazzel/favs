@@ -47,7 +47,20 @@ Make use of the many generators for code, try `ember help generate` for more det
 
 ### Deploying
 
-Specify what it takes to deploy your app.
+The application is setup to deploy to Amazon S3 and (currently) connects to a backend hosted on Heroku.
+
+To deploy to your own S3 bucket:
+
+- create and configure a bucket on [Amazon S3](https://aws.amazon.com/s3/) - [Ember Screencasts](https://www.emberscreencasts.com/tags/ember-cli-deploy) has some good instructions on this.
+- copy `env.example` to `.env`
+- in `.env`, fill in your AWS access key, -secret, bucket and region
+- deploy with `ember deploy production`
+
+#### Connect to your own back-end
+
+The current application uses an API hosted on Heroku. The host name for this is defined in [`config/environment.js`](config/environment.js) and can be replaced by your own.
+
+Please consult [Favs API](https://github.com/bazzel/favs_api) for more information.
 
 ## Further Reading / Useful Links
 

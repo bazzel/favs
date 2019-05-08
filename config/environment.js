@@ -3,7 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     DS: {
-      host: process.env["DS_HOST"] || "http://localhost:3000"
+      host: "http://localhost:3000"
     },
     modulePrefix: "favs",
     environment,
@@ -52,6 +52,7 @@ module.exports = function(environment) {
 
   if (environment === "production") {
     // here you can enable a production-specific feature
+    ENV.DS.host = process.env["DS_HOST"];
   }
 
   // prettier-ignore
