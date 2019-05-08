@@ -4,12 +4,9 @@ import { inject as service } from "@ember/service";
 export default Route.extend({
   session: service(),
   //currentUser: service(),
-  model({ token }) {
+  async model({ token }) {
     let authenticator = "authenticator:jwt-login";
-    return this.get("session")
-      .authenticate(authenticator, token)
-      .then(() => {
-        this.transitionTo("logged-in");
-      });
+    await this.get("session").authenticate(authenticator, token);
+    this.transitionTo("logged-in");
   }
 });
